@@ -23,15 +23,15 @@ services:
             resources:
                 limits:
                     cpus: '1'
-                    memory: '512m'
+                    memory: '1024m'
         networks:
             - sail
         depends_on:
             - pgsql
-            - redis
-            - meilisearch
-            - mailpit
-            - selenium
+#            - redis
+#            - meilisearch
+#            - mailpit
+#            - selenium
     pgsql:
         image: 'postgres:15'
         ports:
@@ -61,7 +61,7 @@ services:
             resources:
                 limits:
                     cpus: '1'
-                    memory: '512m'
+                    memory: '1024m'
     redis:
         image: 'redis:alpine'
         ports:
