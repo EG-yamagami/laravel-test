@@ -12,12 +12,18 @@ class ItemCrudControllerTest extends TestCase
 
     private ?User $user = null;
 
+    /*
+     * 共通の準備
+     */
     protected function setup(): void
     {
         parent::setUp();
         $this->user = User::factory()->create();
     }
 
+    /*
+     * 共通の後始末
+     */
     protected function tearDown(): void
     {
         parent::tearDown();
@@ -38,6 +44,5 @@ class ItemCrudControllerTest extends TestCase
         $response->assertRedirect('/admin/item');
         $this->assertDatabaseCount('items', 1);
         $this->assertDatabaseHas('items', $item_params);
-
     }
 }
