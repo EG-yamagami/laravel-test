@@ -31,7 +31,7 @@ class ItemCrudControllerTest extends TestCase
     }
 
 
-    public function testCreate()
+    public function testCreateWithAuthorized()
     {
         // 準備 (Arrange)
         $this->assertDatabaseCount('items', 0);
@@ -44,5 +44,18 @@ class ItemCrudControllerTest extends TestCase
         $response->assertRedirect('/admin/item');
         $this->assertDatabaseCount('items', 1);
         $this->assertDatabaseHas('items', $item_params);
+    }
+
+    public function testCreateUnauthorized()
+    {
+        // 準備 (Arrange)
+        $this->assertDatabaseCount('items', 0);
+        $item_params = ['name' => 'Item1', 'price' => 1, 'description' => 'Desc1'];
+        // 実行 (Action)
+        $response = $this->post(backpack_url('item'), $item_params);
+
+        // 宣言 (Assert)
+        $response->assertRedirect('/admin/login');
+        $this->assertDatabaseCount('items', 0);
     }
 }
