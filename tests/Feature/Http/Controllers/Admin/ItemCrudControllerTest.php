@@ -31,7 +31,7 @@ class ItemCrudControllerTest extends TestCase
     }
 
 
-    public function testCreateWithAuthorized()
+    public function testCreateAuthorized()
     {
         // 準備 (Arrange)
         $this->assertDatabaseCount('items', 0);
