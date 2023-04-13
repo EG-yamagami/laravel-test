@@ -16,7 +16,6 @@ class ItemTest extends TestCase
         $this->assertDatabaseCount('items', 0);
         $item_params = ['name' => 'Item1', 'price' => 1, 'description' => 'Desc1'];
         // 実行 (Action)
-//        Item::factory($item_params)->create();
         $item = new Item($item_params);
         $item->save();
         // 宣言 (Assert)
