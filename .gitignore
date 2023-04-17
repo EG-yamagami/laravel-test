@@ -4,7 +4,12 @@
 /public/hot
 /public/storage
 /storage/*.key
-/vendor
+/vendor/*
+!/vendor/laravel
+/vendor/laravel/*
+!/vendor/laravel/sail
+/vendor/laravel/sail/*
+!/vendor/laravel/sail/runtimes
 .env
 .env.backup
 .env.production
